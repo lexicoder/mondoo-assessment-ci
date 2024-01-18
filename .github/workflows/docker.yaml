@@ -15,7 +15,7 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_PREFIX: ${{ github.repository_owner }}/mondo-playground
+  IMAGE_PREFIX: ${{ github.repository_owner }}/mondoo-assessment-app
 
 jobs:
   build-and-push:
