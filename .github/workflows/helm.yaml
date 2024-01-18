@@ -10,13 +10,13 @@ on:
       - main
     paths:
       - 'charts/**'
-      - '**/deploy.yaml'
+      - '**/helm.yaml'
   pull_request:
     branches:
       - main
     paths:
       - 'charts/**'
-      - '**/deploy.yaml'
+      - '**/helm.yaml'
 
 env:
   REGISTRY: ghcr.io
