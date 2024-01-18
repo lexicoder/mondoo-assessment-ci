@@ -10,13 +10,13 @@ on:
       - main
     paths:
       - 'charts/**'
-      - '**/deploy.yaml'
+      - '**/helm.yaml'
   pull_request:
     branches:
       - main
     paths:
       - 'charts/**'
-      - '**/deploy.yaml'
+      - '**/helm.yaml'
 
 env:
   REGISTRY: ghcr.io
@@ -99,11 +99,13 @@ jobs:
           ct install --all --namespace testing
 
       - name: Configure Git
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
