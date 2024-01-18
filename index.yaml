@@ -2,6 +2,20 @@ apiVersion: v1
 entries:
   mondoo-assessment-app:
   - apiVersion: v2
+    appVersion: 0.1.27
+    created: "2024-01-18T19:15:43.931740533Z"
+    description: A Helm chart for Kubernetes
+    digest: 4a34d586598338130146836ede4a629be1437b2e49a01f634ac7ea6d3ab751af
+    home: https://github.com/lexicoder/mondo-assessment-ci
+    maintainers:
+    - email: dimeji.isola@gmail.com
+      name: lexicoder
+    name: mondoo-assessment-app
+    type: application
+    urls:
+    - https://github.com/lexicoder/mondoo-assessment-ci/releases/download/mondoo-assessment-app-0.1.13/mondoo-assessment-app-0.1.13.tgz
+    version: 0.1.13
+  - apiVersion: v2
     appVersion: 0.1.26
     created: "2024-01-18T19:01:39.703111272Z"
     description: A Helm chart for Kubernetes
@@ -29,4 +43,4 @@ entries:
     urls:
     - https://github.com/lexicoder/mondoo-assessment-ci/releases/download/mondoo-assessment-app-0.1.6/mondoo-assessment-app-0.1.6.tgz
     version: 0.1.6
-generated: "2024-01-18T19:01:39.70312577Z"
+generated: "2024-01-18T19:15:43.931758116Z"
