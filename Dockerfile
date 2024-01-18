@@ -6,4 +6,4 @@ ARG TARGETARCH
 
 ADD ${BINARY}_${TAG}_${TARGETOS}_${TARGETARCH}.tar.gz /
 
-CMD ["/mondo-playground"]
+CMD ["/${BINARY}"]
