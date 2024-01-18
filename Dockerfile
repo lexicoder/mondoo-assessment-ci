@@ -1,10 +1,9 @@
 FROM gcr.io/distroless/base-debian12:latest-${TARGETARCH}
 
-ARG BINARY
 ARG TAG
 ARG TARGETOS
 ARG TARGETARCH
 
-ADD ${BINARY}_${TAG}_${TARGETOS}_${TARGETARCH}.tar.gz /
+ADD mondoo-assessment-app_${TAG}_${TARGETOS}_${TARGETARCH}.tar.gz /
 
-CMD /${BINARY}
+CMD ["/mondoo-assessment-app"]
