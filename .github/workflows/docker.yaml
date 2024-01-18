@@ -1,4 +1,4 @@
-name: Build
+name: Docker
 
 on:
   workflow_dispatch:
@@ -60,7 +60,7 @@ jobs:
             type=raw,value=latest
 
       - name: Build and push
-        id: build-and-push
+        id: build-push
         uses: docker/build-push-action@v5
         with:
           context: .
@@ -89,7 +89,7 @@ jobs:
       
       - name: Sign the published Docker image
         env:
-          DIGEST: ${{ steps.build-and-push.outputs.digest }}
+          DIGEST: ${{ steps.build-push.outputs.digest }}
           TAGS: ${{ steps.docker_meta.outputs.tags }}
         run: |
           images=""
