@@ -99,7 +99,6 @@ jobs:
           cosign sign --yes ${images}
 
       - name: Trigger helm chart test workflow
-        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: gh workflow run -f tag=${{ inputs.tag }} Deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
