@@ -16,6 +16,7 @@ permissions:
 env:
   REGISTRY: ghcr.io
   IMAGE_PREFIX: ${{ github.repository_owner }}/mondoo-assessment-app
+  APP_REPOSITORY: ${{ github.repository_owner }}/mondoo-assessment-app
 
 jobs:
   build-and-push:
@@ -26,7 +27,7 @@ jobs:
       
       - name: Download mondoo-assessment-app relaseses
         run: |
-          gh release download v${{ inputs.tag }} -R lexicoder/mondo-playground
+          gh release download v${{ inputs.tag }} -R $APP_REPOSITORY
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
