@@ -103,6 +103,6 @@ jobs:
           cosign sign --yes ${images}
 
       - name: Trigger helm chart test workflow
-        run: gh workflow run -f tag=${{ inputs.tag }} Deploy
+        run: gh workflow run -f tag=${{ inputs.tag }} Helm
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
