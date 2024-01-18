@@ -1,7 +1,7 @@
 apiVersion: v2
 name: mondoo-assessment-app
 description: A Helm chart for Kubernetes
-home: https://github.com/lexicoder/mondo-playground-cont
+home: https://github.com/lexicoder/mondo-assessment-ci
 maintainers:
   - name: lexicoder
     email: dimeji.isola@gmail.com
