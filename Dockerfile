@@ -1,6 +1,7 @@
 FROM gcr.io/distroless/base-debian12:latest-${TARGETARCH}
 
 ARG BINARY
+ARG TAG
 ARG TARGETOS
 ARG TARGETARCH
 
