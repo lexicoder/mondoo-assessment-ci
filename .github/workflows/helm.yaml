@@ -21,6 +21,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_PREFIX: ${{ github.repository_owner }}/mondoo-assessment-app
+  APP_REPOSITORY: ${{ github.repository_owner }}/mondoo-assessment-app
 
 permissions:
   contents: write
@@ -70,7 +71,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           if [ "${{ inputs.tag }}" = "" ]; then
-            TAG=$(gh release view -R lexicoder/mondo-playground --json tagName -q .tagName)
+            TAG=$(gh release view -R $APP_REPOSITORY --json tagName -q .tagName)
             VERSION=${TAG#v}
           else
             VERSION=${{ inputs.tag }}
@@ -92,7 +93,7 @@ jobs:
       - name: Create secret
         run: |
           kubectl create namespace testing
-          kubectl create secret -n testing docker-registry ghcr-login-secret --docker-server=https://ghcr.io --docker-username=${{ github.repository_owner }} --docker-password=${{ secrets.GH_PAT }}
+          kubectl create secret -n testing docker-registry ghcr-login-secret --docker-server=https://ghcr.io --docker-username=${{ github.repository_owner }} --docker-password=${{ secrets.GITHUB_TOKEN }}
 
       - name: Run chart-testing (install)
         run: |
