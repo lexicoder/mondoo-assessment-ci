@@ -69,7 +69,9 @@ jobs:
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
           platforms: "linux/amd64,linux/arm64"
-          build-args: BINARY=$BINARY,TAG=${{ inputs.tag }}
+          build-args: |
+            BINARY=$BINARY
+            TAG=${{ inputs.tag }}
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
